@@ -27,7 +27,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll(
-  '.skill-group, .timeline-item, .project-card, .cert-card, .stat-card'
+  '.skill-category, .timeline-item, .project-card, .cert-card, .stat-card'
 ).forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
