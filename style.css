@@ -447,7 +447,8 @@ p:last-child { margin-bottom: 0; }
 }
 
 .project-featured {
-  background: #0F172A;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
 }
 .project-featured:hover { transform: translateY(-4px); }
 
@@ -479,11 +480,11 @@ p:last-child { margin-bottom: 0; }
 
 .project-featured h3 {
   font-size: 1.7rem;
-  color: #ffffff;
+  color: var(--text);
   margin-bottom: 16px;
 }
 
-.project-featured p { color: #94A3B8; }
+.project-featured p { color: var(--text-muted); }
 
 .project-tags {
   display: flex;
@@ -496,9 +497,9 @@ p:last-child { margin-bottom: 0; }
   font-size: 12px;
   font-weight: 500;
   padding: 5px 12px;
-  background: rgba(255, 255, 255, 0.07);
-  color: #CBD5E1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--border);
   border-radius: 100px;
 }
 
@@ -577,10 +578,9 @@ footer p { font-size: 13px; color: var(--text-muted); text-align: center; }
   background: rgba(15, 23, 42, 0.92);
 }
 
-/* Project card hardcodes #0F172A which becomes invisible on dark bg */
+/* Lift the featured card off the dark bg with a slightly lighter surface */
 [data-theme="dark"] .project-featured {
-  background: #1E293B;
-  border: 1px solid #334155;
+  background: #263348;
 }
 
 /* Buttons: #F97316 bg with white text only yields ~2.8:1 — keep the
