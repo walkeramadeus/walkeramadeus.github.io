@@ -8,7 +8,7 @@ window.addEventListener('scroll', () => {
 const themeToggle = document.getElementById('theme-toggle');
 const root = document.documentElement;
 
-function isDark() { return root.getAttribute('data-theme') === 'dark'; }
+function isDark() { return root.getAttribute('data-theme') !== 'light'; }
 
 function updateLabel() {
   themeToggle.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
@@ -17,8 +17,13 @@ updateLabel();
 
 themeToggle.addEventListener('click', () => {
   root.classList.add('theme-transitioning');
-  root.setAttribute('data-theme', isDark() ? 'light' : 'dark');
-  localStorage.setItem('theme', isDark() ? 'dark' : 'light');
+  if (isDark()) {
+    root.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  } else {
+    root.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'dark');
+  }
   updateLabel();
   setTimeout(() => root.classList.remove('theme-transitioning'), 400);
 });
